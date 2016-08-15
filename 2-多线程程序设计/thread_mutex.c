@@ -10,12 +10,12 @@ pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
 void* thread_1(void* arg) {
 	int i, tmp;
 	for(i = 0; i < cnt; i ++) {
-		pthread_mutex_lock(&mutex);
+		//pthread_mutex_lock(&mutex);
 		tmp = num - 1;
 		usleep(30000);
 		num = tmp;
 		printf("1 --> %d\n", num);
-		pthread_mutex_unlock(&mutex);
+		//pthread_mutex_unlock(&mutex);
 	}
 	return NULL;
 }
@@ -23,12 +23,12 @@ void* thread_1(void* arg) {
 void* thread_2(void* arg) {
 	int i, tmp;
 	for(i = 0; i < cnt; i ++) {
-		pthread_mutex_lock(&mutex);
+		//pthread_mutex_lock(&mutex);
 		tmp = num - 1;
 		usleep(20000);
 		num = tmp;
 		printf("2 --> %d\n", num);
-		pthread_mutex_unlock(&mutex);
+		//pthread_mutex_unlock(&mutex);
 	}
 	return NULL;
 }
