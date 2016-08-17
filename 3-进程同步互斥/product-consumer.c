@@ -7,9 +7,11 @@
  * */
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/types.h>
 #include <unistd.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include <signal.h>
 
 #define MAX_BUFSIZE 10
 
@@ -98,11 +100,13 @@ int main() {
 	pthread_t pro_pid, con_pid;
 
 	int i, proNum, conNum;
-	printf("Input the num of product and consumer : ");
+	printf("Input the number of product and consumer : ");
 	scanf("%d %d", &proNum, &conNum);
 	int *pro = (int *)malloc(proNum * sizeof(int));
 	int *con = (int *)malloc(conNum * sizeof(int));
 
+	//signal(SIGINT, SIG_DFL);//收到信号，结束程序
+	//signal(SIGTERM, SIG_DFL);//收到信号，结束程序
 
 	for(i = 0; i < proNum; i ++) {
 		pro_pid = (pthread_t) i;
@@ -123,10 +127,12 @@ int main() {
 		}
 	}
 
-	sleep(2);
+	sleep(1);
 
 	printf("\n总共生产%d,总共消费%d\n\n", pro_cnt, con_cnt);
+	
 	destroy();
 
 	return 0;
 }
+
