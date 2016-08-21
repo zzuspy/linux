@@ -1,3 +1,7 @@
+/*
+ * 读者与写者问题
+ *
+ * */
 #include <stdio.h>
 #include <unistd.h>
 #include <pthread.h>
