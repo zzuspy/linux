@@ -1,3 +1,9 @@
+/*
+ * signal练习1
+ *
+ * 这个程序通过改变终端中断信号Ctrl+C的默认行为来进行说明
+ *
+ * */
 #include <stdio.h>
 #include <signal.h>
 #include <unistd.h>
